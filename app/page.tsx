@@ -101,9 +101,9 @@ function HeroArea() {
             </motion.div>
 
             <dl className="mt-10 grid w-full grid-cols-3 gap-4 text-sm">
-              <Stat icon={GraduationCap} value="+15k" label="Alunos formados" />
-              <Stat icon={Users} value="+300" label="Times treinados" />
-              <Stat icon={TrendingUp} value="4.9/5" label="Satisfação média" />
+              <Stat icon={GraduationCap} value="+25k" label="Alunos formados" />
+              <Stat icon={Users} value="+500" label="Times treinados" />
+              <Stat icon={TrendingUp} value="4.7/5" label="Satisfação média" />
             </dl>
           </div>
 
