@@ -1,0 +1,10 @@
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 25%;
+    transform: translateX(-50%);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+}
