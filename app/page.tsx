@@ -20,6 +20,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import Logo from "@/public/logo.svg"
 
 // -----------------------------------------------------------------------------
 // Página única (app/page.tsx). Todos os componentes locais ficam neste arquivo
@@ -28,13 +29,16 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <main className="min-h-dvh bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-      <HeroArea />
-      <CursosSection />
-      <GptwBadge />
-      <BlogSection />
-      <Footer />
-    </main>
+    <>
+      <Header />
+      <main className="min-h-dvh bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+        <HeroArea />
+        <CursosSection />
+        <GptwBadge />
+        <BlogSection />
+        <Footer />
+      </main>
+    </>
   );
 }
 
@@ -90,7 +94,7 @@ function HeroArea() {
                 Fale com nossos especialistas
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="h-11 px-6 text-base text-green-400">
+              <Button size="lg" variant="outline" className="h-11 px-6 text-base">
                 Ver catálogo de cursos
               </Button>
             </motion.div>
@@ -121,7 +125,7 @@ function Stat({
   return (
     <div className="flex items-center gap-3 rounded-xl border p-3">
       <div className="grid h-10 w-10 place-items-center rounded-lg bg-neutral-100">
-        <Icon className="h-5 w-5" />
+        <Icon className="h-5 w-5 text-black" />
       </div>
       <div>
         <div className="text-lg font-semibold text-gray-200">{value}</div>
@@ -335,6 +339,7 @@ const posts = [
       "Roteiro prático para implementar rituais semanais e indicadores visíveis.",
     date: "12 Ago 2025",
     href: "#",
+    img: "/blog/1.png"
   },
   {
     title: "Dashboards que contam histórias: do Excel ao insight",
@@ -342,6 +347,7 @@ const posts = [
       "Princípios de visualização e modelos prontos para o seu time começar hoje.",
     date: "28 Jul 2025",
     href: "#",
+    img: "/blog/2.png"
   },
   {
     title: "Onboarding de líderes: 90 dias para tracionar a equipe",
@@ -349,6 +355,7 @@ const posts = [
       "Checklist e trilha de aprendizagem para novos gestores performarem rápido.",
     date: "03 Jun 2025",
     href: "#",
+    img: "/blog/3.png"
   },
 ] as const;
 
@@ -369,8 +376,10 @@ function BlogSection() {
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((p, idx) => (
-          <Card key={idx} className="overflow-hidden">
-            <div className="h-40 w-full bg-gradient-to-br from-blue-100 via-fuchsia-100 to-purple-100 ring-1 ring-black/5 dark:from-blue-950 dark:via-fuchsia-950 dark:to-purple-950 dark:ring-white/10" />
+          <Card key={idx} className="overflow-hidden border-none bg-gradient-to-br from-neutral-900 to-neutral-800 ring-white/10 pb-4 pt-0 ">
+            <div className="relative h-40 w-full">
+              <Image src={p.img} fill objectFit="cover" alt="banner" />
+            </div>
             <CardHeader>
               <CardTitle className="text-lg">{p.title}</CardTitle>
               <CardDescription className="flex items-center gap-2">
@@ -405,7 +414,7 @@ function Footer() {
     <footer className="border-t bg-neutral-50/60 py-14 text-sm dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-4">
         <div>
-          <div className="text-lg font-bold">Escola START</div>
+          <div className="text-lg font-bold"><Logo /></div>
           <p className="mt-2 max-w-xs text-neutral-600 dark:text-neutral-300">
             Aprendizagem corporativa que transforma competências em performance.
           </p>
@@ -444,4 +453,12 @@ function Footer() {
       </div>
     </footer>
   );
+}
+
+function Header() {
+  return (
+    <header className="flex items-center justify-center sticky top-0 z-50 w-full h-[80px] bg-[#232323]">
+      <Logo />
+    </header>
+  )
 }
