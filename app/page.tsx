@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
@@ -414,7 +415,9 @@ function Footer() {
     <footer className="border-t bg-neutral-50/60 py-14 text-sm dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-4">
         <div>
-          <div className="text-lg font-bold"><Logo /></div>
+          <div className="text-lg font-bold">
+            <Image src={Logo} alt="Logo" width={120} height={40} />
+          </div>
           <p className="mt-2 max-w-xs text-neutral-600 dark:text-neutral-300">
             Aprendizagem corporativa que transforma competências em performance.
           </p>
@@ -439,7 +442,7 @@ function Footer() {
           <div className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
             Contato
           </div>
-          <p>contato@escolastart.plus</p>
+          <p>administrativo@canaisstart.com.br</p>
           <p>CNPJ 23.755.892/0001-36</p>
           <div className="mt-2 flex gap-2">
             <a className="rounded-lg border px-2 py-1" href="#">LinkedIn</a>
@@ -458,7 +461,7 @@ function Footer() {
 function Header() {
   return (
     <header className="flex items-center justify-center sticky top-0 z-50 w-full h-[80px] bg-[#232323]">
-      <Logo />
+      <Image src={Logo} alt="Logo" width={120} height={40} />
     </header>
   )
 }
